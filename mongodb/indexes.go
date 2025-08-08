@@ -7,12 +7,12 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type MongoRepo struct {
+type MongoIndexer struct {
 	Collection       *mongo.Collection
 	VectorDimensions int
 }
 
-func (r MongoRepo) CreateIndexes(ctx context.Context) ([]string, error) {
+func (r MongoIndexer) CreateIndexes(ctx context.Context) ([]string, error) {
 	models := vectorSearchIndexes(r.VectorDimensions)
 	vectorIndexes, err := r.Collection.SearchIndexes().CreateMany(ctx, models)
 	if err != nil {
