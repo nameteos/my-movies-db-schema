@@ -2,32 +2,20 @@
 # Schema Manifest
 # This file tracks all available schema versions and their compatibility
 
-current_version: "v1"
+current_version: "v1.1"
 versions:
-  - version: "v1"
+  - version: "v1.1"
     release_date: "2025-08-08"
     status: "stable"
     schemas:
       - name: "movie"
-        path: "v1/movie.yaml"
+        path: "v1.1/movie.yaml"
         collection: "movies"
         description: "Movie document schema"
-      
-      - name: "embedding_object"
-        path: "v1/embedding_object.yaml"
-        description: "Embedding object schema for vector search"
-        
-      - name: "tmdb_genre"
-        path: "v1/tmdb_genre.yaml"
-        description: "TMDB genre schema"
-        
-      - name: "tmdb_language"
-        path: "v1/tmdb_language.yaml"
-        description: "TMDB language schema"
         
 compatibility:
-  - from_version: "v1"
-    to_version: "v1"
+  - from_version: "v1.1"
+    to_version: "v1.1"
     compatible: true
     migration_required: false
     migration_script: null

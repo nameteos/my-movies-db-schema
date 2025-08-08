@@ -1,9 +1,9 @@
 ---
-# Movie Schema - v1
+# Movie Schema - v1.1
 # Created: 2025-08-08
 # This schema defines the structure for movie documents in MongoDB
 
-schema_version: "1.0"
+schema_version: "1.1"
 collection_name: "movies"
 description: "Collection for storing movie information"
 
@@ -166,3 +166,15 @@ indexes:
       - created_at: -1
     options:
       unique: false
+      
+  - name: "embeddings_vector_index"
+    type: "vectorSearch"
+    fields:
+      - path: "embeddings.*.vector"
+        numDimensions: 1536
+        similarity: "cosine"
+    options:
+      type: "hnsw"
+      dimensions: 1536
+      similarity: "cosine"
+      description: "Vector index for semantic search on movie embeddings"
