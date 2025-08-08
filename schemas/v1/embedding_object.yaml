@@ -1,0 +1,25 @@
+---
+# EmbeddingObject Schema - v1
+# Created: 2025-08-08
+# This schema defines the structure for embedding objects used in vector search
+
+schema_version: "1.0"
+description: "Schema for embedding objects used in vector search"
+
+fields:
+  vector:
+    type: "array"
+    items:
+      type: "number"
+    description: "Vector representation of the entity"
+    required: true
+    
+  model:
+    type: "string"
+    description: "Model used to generate the embedding"
+    required: true
+    
+  version:
+    type: "string"
+    description: "Version of the model used"
+    required: true

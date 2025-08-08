@@ -1,0 +1,18 @@
+---
+# TMDBLanguage Schema - v1
+# Created: 2025-08-08
+# This schema defines the structure for spoken languages from TMDB
+
+schema_version: "1.0"
+description: "Schema for spoken languages from TMDB"
+
+fields:
+  iso_639_1:
+    type: "string"
+    description: "Language code (ISO 639-1)"
+    required: true
+    
+  name:
+    type: "string"
+    description: "Language name"
+    required: true
