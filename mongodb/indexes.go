@@ -8,17 +8,17 @@ import (
 )
 
 type MongoRepo struct {
-	collection       *mongo.Collection
-	vectorDimensions int
+	Collection       *mongo.Collection
+	VectorDimensions int
 }
 
 func (r MongoRepo) CreateIndexes(ctx context.Context) ([]string, error) {
-	models := vectorSearchIndexes(r.vectorDimensions)
-	vectorIndexes, err := r.collection.SearchIndexes().CreateMany(ctx, models)
+	models := vectorSearchIndexes(r.VectorDimensions)
+	vectorIndexes, err := r.Collection.SearchIndexes().CreateMany(ctx, models)
 	if err != nil {
 		return nil, err
 	}
-	indexes, err := r.collection.Indexes().CreateMany(ctx, movieIndexes())
+	indexes, err := r.Collection.Indexes().CreateMany(ctx, movieIndexes())
 	if err != nil {
 		return nil, err
 	}
